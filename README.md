@@ -1,6 +1,7 @@
 # Autovectorized utf8 validator
 Godbolt: https://rust.godbolt.org/z/qrabTh3d3
 
+Autovectorized utf-8 validator in 100% safe rust. This algorithm is ment for non-ascii text. Ascii fast paths can be built on top of this.
 
 ### Run bench
 ```
@@ -20,6 +21,8 @@ test bench_simd_chinese_autovec      ... bench:         995.15 ns/iter (+/- 6.30
 test bench_simd_chinese_autovec_max3 ... bench:         668.32 ns/iter (+/- 4.86)
 test bench_simd_chinese_simdutf8     ... bench:         420.27 ns/iter (+/- 2.68)
 ```
+The comparison is still not 100% fair as simdutf8 has an ascii fast path that cannot be used in this benchmark as all chunks contain non-ascii chars.
+
 
 autovec_max3 is a version that only **validates** utf8 of length 3 and **recognizes** utf8 of length 4. See below for more info.
 
