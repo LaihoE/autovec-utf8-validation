@@ -1,5 +1,5 @@
 ### Autovectorized utf8 validator
-
+Godbolt: https://rust.godbolt.org/z/qrabTh3d3
 
 
 ### Run bench
@@ -15,10 +15,10 @@ cargo run
 
 ### Results on my machine (Ryzen 5900x)
 ```
-test bench_japanese_std               ... bench:       4,755.05 ns/iter (+/- 74.27)
-test bench_simd_japanese_autovec      ... bench:         995.15 ns/iter (+/- 6.30)
-test bench_simd_japanese_autovec_max3 ... bench:         668.32 ns/iter (+/- 4.86)
-test bench_simd_japanese_simdutf8     ... bench:         420.27 ns/iter (+/- 2.68)
+test bench_chinese_std               ... bench:       4,755.05 ns/iter (+/- 74.27)
+test bench_simd_chinese_autovec      ... bench:         995.15 ns/iter (+/- 6.30)
+test bench_simd_chinese_autovec_max3 ... bench:         668.32 ns/iter (+/- 4.86)
+test bench_simd_chinese_simdutf8     ... bench:         420.27 ns/iter (+/- 2.68)
 ```
 
 autovec_max3 is a version that only **validates** utf8 of length 3 and **recognizes** utf8 of length 4. See below for more info.

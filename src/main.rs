@@ -1,10 +1,9 @@
 #![feature(test)]
 extern crate test;
-use test::*;
-
 use autovec_utf8_validator::validate_utf8;
 use autovec_utf8_validator::validate_utf8_max3;
 use simdutf8::basic::from_utf8;
+use test::*;
 
 // taken from: https://zh.wikipedia.org/wiki/Rust
 const CHINESE: &str = "Rust是由Mozilla[11]主导开发的通用、编译型编程语言。设计准则为“安全、并发、实用”[12][13]，支持函数式、並行式、过程式以及面向对象的程式設計风格。
@@ -59,21 +58,21 @@ pub fn main() {
 }
 
 #[bench]
-fn bench_japanese_std(b: &mut Bencher) {
+fn bench_chinese_std(b: &mut Bencher) {
     b.iter(|| std::str::from_utf8(black_box(CHINESE.as_bytes())));
 }
 
 #[bench]
-fn bench_simd_japanese_autovec(b: &mut Bencher) {
+fn bench_simd_chinese_autovec(b: &mut Bencher) {
     b.iter(|| validate_utf8(black_box(CHINESE.as_bytes())));
 }
 
 #[bench]
-fn bench_simd_japanese_autovec_max3(b: &mut Bencher) {
+fn bench_simd_chinese_autovec_max3(b: &mut Bencher) {
     b.iter(|| validate_utf8_max3(black_box(CHINESE.as_bytes())));
 }
 
 #[bench]
-fn bench_simd_japanese_simdutf8(b: &mut Bencher) {
+fn bench_simd_chinese_simdutf8(b: &mut Bencher) {
     b.iter(|| from_utf8(black_box(CHINESE.as_bytes())));
 }
