@@ -1,4 +1,4 @@
-### Autovectorized utf8 validator
+# Autovectorized utf8 validator
 Godbolt: https://rust.godbolt.org/z/qrabTh3d3
 
 
