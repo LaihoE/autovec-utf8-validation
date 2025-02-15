@@ -1,0 +1,7 @@
+[package]
+name = "autovec-utf8-validator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+simdutf8 = "0.1.5"
