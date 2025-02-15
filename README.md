@@ -1,7 +1,7 @@
 # Autovectorized utf8 validator
 Godbolt: https://rust.godbolt.org/z/qrabTh3d3
 
-Autovectorized utf-8 validator in 100% safe rust. This algorithm is ment for non-ascii text. Ascii fast paths can be built on top of this.
+Autovectorized utf-8 validator in 100% safe rust. This algorithm is meant for non-ascii text. Ascii fast paths can be built on top of this.
 
 ### Run bench
 ```
